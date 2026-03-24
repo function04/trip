@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import MobileHeader from "@/components/layout/MobileHeader";
 
 const MENU_ITEMS = [
   { href: "/schedule",          icon: "📅",  title: "일정"        },
@@ -14,8 +13,10 @@ const MENU_ITEMS = [
   { href: "/upgrades",          icon: "🔧",  title: "업데이트"    },
 ];
 
-const UK_URL = "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=900&q=85";
-const IE_URL = "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=900&q=85";
+// 런던 타워브리지 야경
+const UK_URL = "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=900&q=85";
+// 아일랜드 클리프스 오브 모허
+const IE_URL = "https://images.unsplash.com/photo-1564959130747-897fb406b9af?w=900&q=85";
 
 export default function Dashboard() {
   return (
@@ -23,13 +24,11 @@ export default function Dashboard() {
       {/* ── 모바일 ── */}
       <div className="md:hidden min-h-screen" style={{ background: "var(--bg-primary)" }}>
 
-        <MobileHeader title="" />
-
-        {/* 커버 — 상단 (헤더 영역 위로 -52px 올려서 꽉 차게) */}
-        <div style={{ position: "relative", height: 320, overflow: "hidden", marginTop: -52 }}>
+        {/* 커버 — 헤더 포함 최상단부터 시작 */}
+        <div style={{ position: "relative", height: 340, overflow: "hidden" }}>
           <img src={IE_URL} alt="" style={{
             position: "absolute", inset: 0, width: "100%", height: "100%",
-            objectFit: "cover", objectPosition: "center 60%",
+            objectFit: "cover", objectPosition: "center 40%",
           }} />
           <img src={UK_URL} alt="" style={{
             position: "absolute", inset: 0, width: "100%", height: "100%",
@@ -38,12 +37,24 @@ export default function Dashboard() {
             WebkitMaskImage: "linear-gradient(to bottom, black 30%, transparent 65%)",
           }} />
           {/* 다크 오버레이 */}
-          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.4)" }} />
-          {/* 하단 페이드 — CSS 변수 사용 */}
+          <div style={{ position: "absolute", inset: 0, background: "rgba(0,0,0,0.35)" }} />
+          {/* 하단 페이드 */}
           <div style={{
-            position: "absolute", bottom: 0, left: 0, right: 0, height: 100,
-            background: "linear-gradient(to top, var(--bg-primary), transparent)",
+            position: "absolute", bottom: 0, left: 0, right: 0, height: 120,
+            background: "linear-gradient(to top, #1e1f22, transparent)",
           }} />
+          {/* PLANNER 헤더 — 이미지 위에 absolute로 겹침 */}
+          <div style={{
+            position: "absolute", top: 0, left: 0, right: 0,
+            padding: "14px 20px",
+            background: "rgba(0,0,0,0.15)",
+            backdropFilter: "blur(2px)",
+            WebkitBackdropFilter: "blur(2px)",
+          }}>
+            <span style={{ fontSize: 13, fontWeight: 700, color: "#fff", letterSpacing: "0.08em", opacity: 0.95 }}>
+              PLANNER
+            </span>
+          </div>
           {/* 제목 */}
           <div style={{ position: "absolute", bottom: 22, left: 20 }}>
             <div style={{ display: "flex", gap: 6, marginBottom: 6 }}>
