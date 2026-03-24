@@ -44,7 +44,7 @@ export default function ExpenseDayClient({ dayNumber }: { dayNumber: number }) {
       {/* iOS 헤더 */}
       <MobileHeader title={`Day ${dayNumber} 가계부`} />
 
-      <div className="px-4 pt-4 pb-10">
+      <div className="px-4 pt-2 pb-10">
         {/* PC용 타이틀 */}
         <div className="hidden md:flex items-center justify-between mb-6">
           <div>

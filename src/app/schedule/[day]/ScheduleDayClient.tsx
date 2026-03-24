@@ -330,7 +330,7 @@ export default function ScheduleDayClient({ dayNumber }: { dayNumber: number }) 
 
       <FAB onClick={() => setShowAdd((v) => !v)} label={showAdd ? "✕" : "+"} />
 
-      <div className="px-4 pt-4 pb-28">
+      <div className="px-4 pt-2 pb-28">
         {/* PC용 헤더 */}
         <div className="hidden md:block mb-6">
           <Link href="/schedule" className="text-text-tertiary hover:text-text-secondary text-sm mb-2 inline-block">← 전체 일정</Link>

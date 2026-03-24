@@ -117,7 +117,7 @@ export default function ChecklistPage() {
       </div>
 
       {/* 모바일 */}
-      <div className="md:hidden px-4 pt-3 pb-28">
+      <div className="md:hidden px-4 pt-1 pb-28">
         {/* 진행률 */}
         {items.length > 0 && (
           <div style={{ marginBottom: 12 }}>

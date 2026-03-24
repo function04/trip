@@ -25,7 +25,7 @@ export default function ExpensesPage() {
       </div>
 
       {/* 모바일 — 3×4 그리드 */}
-      <div className="md:hidden px-4 pt-3 pb-28">
+      <div className="md:hidden px-4 pt-1 pb-28">
         <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 10 }}>
           {Array.from({ length: TOTAL_DAYS }, (_, i) => i + 1).map((day) => (
             <Link key={day} href={`/expenses/${day}`}

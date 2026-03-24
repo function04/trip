@@ -86,7 +86,7 @@ export default function PreTripExpensesPage() {
       </div>
 
       {/* 모바일 */}
-      <div className="md:hidden px-4 pt-3 pb-28">
+      <div className="md:hidden px-4 pt-1 pb-28">
         {/* 카테고리 필터 칩 */}
         {!loading && categories.length > 0 && (
           <div style={{ display: "flex", gap: 7, flexWrap: "wrap", marginBottom: 14 }}>

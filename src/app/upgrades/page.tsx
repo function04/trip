@@ -50,7 +50,7 @@ export default function UpgradesPage() {
       </div>
 
       {/* 모바일 */}
-      <div className="md:hidden px-4 pt-3 pb-20">
+      <div className="md:hidden px-4 pt-1 pb-20">
         <div style={{ fontSize: 12, color: "var(--text-tertiary)", marginBottom: 16, lineHeight: 1.6 }}>
           여행 계획을 최종 확정할 때 참고할 개선·추가 사항 목록입니다.
         </div>

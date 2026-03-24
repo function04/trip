@@ -72,7 +72,7 @@ export default function TodaySchedulePage() {
       </div>
 
       {/* 모바일 */}
-      <div className="md:hidden px-4 pt-3 pb-4">
+      <div className="md:hidden px-4 pt-1 pb-4">
         {/* 오늘 날짜 — 항상 표시 (영국 시간 기준) */}
         <div style={{
           fontSize: 13, fontWeight: 600, color: "var(--text-secondary)",

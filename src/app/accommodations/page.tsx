@@ -129,7 +129,7 @@ export default function AccommodationsPage() {
       </div>
 
       {/* 모바일 */}
-      <div className="md:hidden px-4 pt-3 pb-28">
+      <div className="md:hidden px-4 pt-1 pb-28">
         {loading ? (
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             {Array.from({ length: 4 }).map((_, i) => (

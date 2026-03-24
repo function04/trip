@@ -79,7 +79,7 @@ export default function BookingsPage() {
   return (
     <div style={{ minHeight: "100svh", background: "var(--bg-primary)" }}>
       <MobileHeader title="예약 관리" />
-      <div className="md:hidden px-4 pt-3 pb-24">
+      <div className="md:hidden px-4 pt-1 pb-24">
         {/* Summary */}
         <div style={{ display: "flex", gap: 8, marginBottom: 14 }}>
           <div style={{ flex: 1, borderRadius: 14, padding: "12px 14px", background: "var(--card-bg)", border: "1px solid var(--border-default)" }}>

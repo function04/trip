@@ -14,7 +14,6 @@ export default function PageSwipe({ children }: { children: React.ReactNode }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [dragX, setDragX] = useState(0);
 
-  // Use refs to avoid stale closures in native event handlers
   const stateRef = useRef({
     touchStartX: null as number | null,
     touchStartY: null as number | null,
@@ -25,7 +24,6 @@ export default function PageSwipe({ children }: { children: React.ReactNode }) {
     isSwipePage,
   });
 
-  // Keep stateRef in sync
   stateRef.current.currentIdx = currentIdx;
   stateRef.current.isSwipePage = isSwipePage;
 
@@ -49,9 +47,8 @@ export default function PageSwipe({ children }: { children: React.ReactNode }) {
       const dx = e.touches[0].clientX - s.touchStartX;
       const dy = e.touches[0].clientY - s.touchStartY;
 
-      // 방향 잠금
       if (!s.isHorizontal && !s.dragging) {
-        if (Math.abs(dy) > Math.abs(dx)) return; // 세로 이동 → 무시
+        if (Math.abs(dy) > Math.abs(dx)) return;
         if (Math.abs(dx) > 6) {
           s.isHorizontal = true;
           s.dragging = true;
@@ -62,11 +59,10 @@ export default function PageSwipe({ children }: { children: React.ReactNode }) {
 
       if (!s.isHorizontal) return;
 
-      // 경계 처리
       if (dx > 0 && s.currentIdx === 0) return;
       if (dx < 0 && s.currentIdx === SWIPE_PAGES.length - 1) return;
 
-      e.preventDefault(); // 세로 스크롤 차단 — passive: false 이므로 작동
+      e.preventDefault();
       s.dragX = dx;
       setDragX(dx);
     }
@@ -104,9 +100,17 @@ export default function PageSwipe({ children }: { children: React.ReactNode }) {
       el.removeEventListener("touchmove", onTouchMove);
       el.removeEventListener("touchend", onTouchEnd);
     };
-  }, [router]); // router is stable, so this runs once
+  }, [router]);
 
-  if (!isSwipePage) return <>{children}</>;
+  // 스와이프 페이지 아닐 때도 항상 containerRef div를 렌더해서
+  // 이벤트 리스너가 항상 붙어있도록 유지
+  if (!isSwipePage) {
+    return (
+      <div ref={containerRef} style={{ width: "100%", height: "100%" }}>
+        {children}
+      </div>
+    );
+  }
 
   const totalPages = SWIPE_PAGES.length;
   const isDragging = stateRef.current.dragging;
@@ -121,7 +125,6 @@ export default function PageSwipe({ children }: { children: React.ReactNode }) {
         overflow: "hidden",
       }}
     >
-      {/* 3페이지를 나란히 배치, translate로 슬라이드 */}
       <div
         style={{
           display: "flex",

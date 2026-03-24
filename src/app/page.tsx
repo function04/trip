@@ -25,8 +25,8 @@ export default function Dashboard() {
 
         <MobileHeader title="" />
 
-        {/* 커버 — 상단 */}
-        <div style={{ position: "relative", height: 260, overflow: "hidden" }}>
+        {/* 커버 — 상단 (헤더 영역 위로 -52px 올려서 꽉 차게) */}
+        <div style={{ position: "relative", height: 320, overflow: "hidden", marginTop: -52 }}>
           <img src={IE_URL} alt="" style={{
             position: "absolute", inset: 0, width: "100%", height: "100%",
             objectFit: "cover", objectPosition: "center 60%",
@@ -45,7 +45,7 @@ export default function Dashboard() {
             background: "linear-gradient(to top, var(--bg-primary), transparent)",
           }} />
           {/* 제목 */}
-          <div style={{ position: "absolute", bottom: 18, left: 20 }}>
+          <div style={{ position: "absolute", bottom: 22, left: 20 }}>
             <div style={{ display: "flex", gap: 6, marginBottom: 6 }}>
               {/* 국기: 모바일(iOS)에서는 이모지, 크롬에서는 텍스트 배지 */}
               <span style={{

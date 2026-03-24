@@ -55,7 +55,7 @@ export default function ExchangeRatesPage() {
       </div>
 
       {/* 모바일 */}
-      <div className="md:hidden px-4 pt-3 pb-28">
+      <div className="md:hidden px-4 pt-1 pb-28">
         <div style={{ marginBottom: 20 }}>
           <div style={{ fontSize: 13, color: "var(--text-tertiary)", lineHeight: 1.5 }}>
             결제 수단과 화폐에 따라 환율을 개별 설정할 수 있어요.{"\n"}

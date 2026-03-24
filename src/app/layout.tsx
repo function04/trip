@@ -74,7 +74,7 @@ export default function RootLayout({
           <PageSwipe>
             <SwipeBack>
               <PullToRefresh>
-                <div className="page-slide-in" style={{ paddingBottom: hideBottomNav ? 0 : 96 }}>
+                <div className="page-slide-in" style={{ paddingBottom: hideBottomNav ? 0 : 96, paddingTop: 0 }}>
                   {children}
                 </div>
               </PullToRefresh>
