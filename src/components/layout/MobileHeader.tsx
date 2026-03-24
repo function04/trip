@@ -36,9 +36,7 @@ export default function MobileHeader({ title }: MobileHeaderProps) {
     <div
       className="md:hidden sticky top-0 z-40"
       style={{
-        background: "var(--header-bg)",
-        backdropFilter: "blur(20px) saturate(180%)",
-        WebkitBackdropFilter: "blur(20px) saturate(180%)",
+        background: "#1e1f22",
         borderBottom: "1px solid rgba(255,255,255,0.1)",
         transform: hidden ? "translateY(-100%)" : "translateY(0)",
         transition: "transform 0.3s cubic-bezier(0.4, 0, 0.2, 1)",

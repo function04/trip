@@ -13,10 +13,10 @@ const MENU_ITEMS = [
   { href: "/upgrades",          icon: "🔧",  title: "업데이트"    },
 ];
 
-// 런던 타워브리지 야경
-const UK_URL = "https://images.unsplash.com/photo-1529655683826-aba9b3e77383?w=900&q=85";
-// 아일랜드 클리프스 오브 모허
-const IE_URL = "https://images.unsplash.com/photo-1564959130747-897fb406b9af?w=900&q=85";
+// 런던 빅벤+웨스트민스터 야경
+const UK_URL = "https://images.unsplash.com/photo-1533929736458-ca588d08c8be?w=900&q=85";
+// 아일랜드 코크 컬러풀 하우스
+const IE_URL = "https://images.unsplash.com/photo-1590089415225-401ed6f9db8e?w=900&q=85";
 
 export default function Dashboard() {
   return (
@@ -24,8 +24,20 @@ export default function Dashboard() {
       {/* ── 모바일 ── */}
       <div className="md:hidden min-h-screen" style={{ background: "var(--bg-primary)" }}>
 
-        {/* 커버 — 헤더 포함 최상단부터 시작 */}
-        <div style={{ position: "relative", height: 340, overflow: "hidden" }}>
+        {/* PLANNER 헤더 */}
+        <div style={{
+          padding: "14px 20px", minHeight: 52,
+          display: "flex", alignItems: "center",
+          background: "#1e1f22",
+          borderBottom: "1px solid rgba(255,255,255,0.1)",
+        }}>
+          <span style={{ fontSize: 13, fontWeight: 700, color: "#fff", letterSpacing: "0.08em", opacity: 0.9 }}>
+            PLANNER
+          </span>
+        </div>
+
+        {/* 커버 — 헤더 바로 아래 */}
+        <div style={{ position: "relative", height: 280, overflow: "hidden" }}>
           <img src={IE_URL} alt="" style={{
             position: "absolute", inset: 0, width: "100%", height: "100%",
             objectFit: "cover", objectPosition: "center 40%",
@@ -43,18 +55,6 @@ export default function Dashboard() {
             position: "absolute", bottom: 0, left: 0, right: 0, height: 120,
             background: "linear-gradient(to top, #1e1f22, transparent)",
           }} />
-          {/* PLANNER 헤더 — 이미지 위에 absolute로 겹침 */}
-          <div style={{
-            position: "absolute", top: 0, left: 0, right: 0,
-            padding: "14px 20px",
-            background: "rgba(0,0,0,0.15)",
-            backdropFilter: "blur(2px)",
-            WebkitBackdropFilter: "blur(2px)",
-          }}>
-            <span style={{ fontSize: 13, fontWeight: 700, color: "#fff", letterSpacing: "0.08em", opacity: 0.95 }}>
-              PLANNER
-            </span>
-          </div>
           {/* 제목 */}
           <div style={{ position: "absolute", bottom: 22, left: 20 }}>
             <div style={{ display: "flex", gap: 6, marginBottom: 6 }}>
