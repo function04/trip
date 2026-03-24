@@ -191,7 +191,7 @@ export default function SchedulePage() {
 
   return (
     <div style={{ minHeight: "100svh", background: BG }}>
-      <MobileHeader title="일정" />
+      {!showAll && <MobileHeader title="일정" />}
 
       {/* PC */}
       <div className="hidden md:block p-8">
