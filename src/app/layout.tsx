@@ -17,7 +17,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   const [sidebarOpen, setSidebarOpen] = useState(true);
-  const [splashDone, setSplashDone] = useState(false);
+  const [splashDone, setSplashDone] = useState(() => {
+    if (typeof window !== "undefined") {
+      return sessionStorage.getItem("splashDone") === "1";
+    }
+    return false;
+  });
   const pathname = usePathname();
 
   useEffect(() => {
@@ -47,7 +52,7 @@ export default function RootLayout({
 
         {/* 스플래시 — 매 실행마다 표시 */}
         {!splashDone && (
-          <SplashScreen onDone={() => setSplashDone(true)} />
+          <SplashScreen onDone={() => { sessionStorage.setItem("splashDone", "1"); setSplashDone(true); }} />
         )}
 
         {/* PC 레이아웃 */}
