@@ -66,10 +66,10 @@ export default function SummaryPage() {
       .sort((a, b) => b.value - a.value);
   }
 
-  // 도시별 집계
+  // 도시별 집계 (여행 전 지출 제외)
   function getCityTotals() {
     const result: Record<string, number> = {};
-    expenses.forEach((exp) => {
+    expenses.filter(e => e.expense_type !== "pre_trip").forEach((exp) => {
       const key = exp.city || "미분류";
       const krw = convertToKRW(Number(exp.amount), exp.currency, exp.payment_method, rates);
       result[key] = (result[key] || 0) + krw;
