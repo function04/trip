@@ -23,7 +23,20 @@ export default function UpdateBanner() {
 
     async function init() {
       const v = await fetchVersion();
-      if (v && v !== "dev") initialVersion.current = v;
+      if (!v || v === "dev") return;
+
+      const stored = sessionStorage.getItem("appVersion");
+      if (!stored) {
+        // 최초 방문: 현재 버전 저장
+        sessionStorage.setItem("appVersion", v);
+        initialVersion.current = v;
+      } else if (stored !== v) {
+        // 이전 세션 버전과 다르면 즉시 배너 표시
+        setShow(true);
+        sessionStorage.setItem("appVersion", v);
+      } else {
+        initialVersion.current = v;
+      }
     }
 
     async function check() {

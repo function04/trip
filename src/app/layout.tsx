@@ -41,6 +41,9 @@ export default function RootLayout({
         <title>여행 플래너</title>
         <meta name="description" content="아일랜드 & 영국 여행 계획 & 가계부" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
         <meta name="theme-color" content="#1e1f22" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
