@@ -11,12 +11,15 @@ import MobileHeader from "@/components/layout/MobileHeader";
 const TRANSPORT_ICON: Record<string, string> = { subway: "🚇", bus: "🚌", walk: "🚶", tram: "🚊", train: "🚂", taxi: "🚕" };
 
 const CITY_COLOR: Record<string, { bg: string; color: string }> = {
-  "맨체스터": { bg: "rgba(10,132,255,0.15)",   color: "rgba(100,180,255,0.9)" },
-  "리버풀":   { bg: "rgba(48,209,88,0.15)",   color: "rgba(80,210,120,0.9)" },
-  "런던":     { bg: "rgba(255,159,10,0.15)",  color: "rgba(255,190,80,0.9)" },
-  "옥스퍼드": { bg: "rgba(191,90,242,0.15)",  color: "rgba(210,140,255,0.9)" },
-  "케임브리지":{ bg: "rgba(100,210,255,0.15)", color: "rgba(120,220,255,0.9)" },
-  "더블린":   { bg: "rgba(255,107,107,0.15)", color: "rgba(255,140,140,0.9)" },
+  "맨체스터":  { bg: "rgba(10,132,255,0.15)",  color: "rgba(100,180,255,0.9)" },
+  "리버풀":    { bg: "rgba(48,209,88,0.15)",   color: "rgba(80,210,120,0.9)" },
+  "런던":      { bg: "rgba(255,159,10,0.15)",  color: "rgba(255,190,80,0.9)" },
+  "옥스포드":  { bg: "rgba(191,90,242,0.15)",  color: "rgba(210,140,255,0.9)" },
+  "옥스퍼드":  { bg: "rgba(191,90,242,0.15)",  color: "rgba(210,140,255,0.9)" },
+  "케임브리지":{ bg: "rgba(0,199,190,0.15)",   color: "rgba(0,210,200,0.9)" },
+  "더블린":    { bg: "rgba(255,69,58,0.15)",   color: "rgba(255,110,100,0.9)" },
+  "히드로":    { bg: "rgba(255,214,10,0.15)",  color: "rgba(255,220,50,0.9)" },
+  "기타":      { bg: "rgba(128,132,142,0.15)", color: "rgba(160,164,172,0.9)" },
 };
 
 function ItemDetailPopup({ item, onClose }: { item: ScheduleItem & { day_number: number; day_title: string | null }; onClose: () => void }) {

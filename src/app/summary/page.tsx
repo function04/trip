@@ -17,12 +17,15 @@ const COLORS = [
 ];
 
 const CITY_COLORS: Record<string, string> = {
-  "맨체스터": "#0a84ff",
-  "리버풀":   "#30d158",
-  "런던":     "#ff9f0a",
-  "옥스퍼드": "#bf5af2",
-  "케임브리지":"#64d2ff",
-  "더블린":   "#ff6b6b",
+  "맨체스터":  "#0a84ff",
+  "리버풀":    "#30d158",
+  "런던":      "#ff9f0a",
+  "옥스포드":  "#bf5af2",
+  "옥스퍼드":  "#bf5af2",
+  "케임브리지":"#00c7be",
+  "더블린":    "#ff453a",
+  "히드로":    "#ffd60a",
+  "기타":      "#80848e",
 };
 
 export default function SummaryPage() {
@@ -129,7 +132,7 @@ export default function SummaryPage() {
           </div>
         ) : view === "city" ? (
           <div className="p-6 rounded-xl bg-bg-elevated border border-border-default max-w-sm mx-auto">
-            <DonutChart data={cityData} total={cityTotal} label="도시별 지출" />
+            <DonutChart data={cityData} total={cityTotal} label="여행 중 지출" />
           </div>
         ) : view === "transport" ? (
           <TransportComparison expenses={expenses} rates={rates} />
@@ -279,7 +282,7 @@ function MobileCityView({
         background: "var(--card-bg)",
         border: "1px solid var(--border-default)",
       }}>
-        <DonutChart data={cityData} total={cityTotal} label="도시별 지출" />
+        <DonutChart data={cityData} total={cityTotal} label="여행 중 지출" />
       </div>
 
       {/* 도시별 막대 리스트 */}
@@ -317,12 +320,15 @@ function MobileCityView({
 }
 
 const CITY_COLOR_TABLE: Record<string, { bg: string; color: string }> = {
-  "맨체스터": { bg: "rgba(10,132,255,0.15)",   color: "rgba(100,180,255,0.9)" },
-  "리버풀":   { bg: "rgba(48,209,88,0.15)",   color: "rgba(80,210,120,0.9)" },
-  "런던":     { bg: "rgba(255,159,10,0.15)",  color: "rgba(255,190,80,0.9)" },
-  "옥스퍼드": { bg: "rgba(191,90,242,0.15)",  color: "rgba(210,140,255,0.9)" },
-  "케임브리지":{ bg: "rgba(100,210,255,0.15)", color: "rgba(120,220,255,0.9)" },
-  "더블린":   { bg: "rgba(255,107,107,0.15)", color: "rgba(255,140,140,0.9)" },
+  "맨체스터":  { bg: "rgba(10,132,255,0.15)",  color: "rgba(100,180,255,0.9)" },
+  "리버풀":    { bg: "rgba(48,209,88,0.15)",   color: "rgba(80,210,120,0.9)" },
+  "런던":      { bg: "rgba(255,159,10,0.15)",  color: "rgba(255,190,80,0.9)" },
+  "옥스포드":  { bg: "rgba(191,90,242,0.15)",  color: "rgba(210,140,255,0.9)" },
+  "옥스퍼드":  { bg: "rgba(191,90,242,0.15)",  color: "rgba(210,140,255,0.9)" },
+  "케임브리지":{ bg: "rgba(0,199,190,0.15)",   color: "rgba(0,210,200,0.9)" },
+  "더블린":    { bg: "rgba(255,69,58,0.15)",   color: "rgba(255,110,100,0.9)" },
+  "히드로":    { bg: "rgba(255,214,10,0.15)",  color: "rgba(255,220,50,0.9)" },
+  "기타":      { bg: "rgba(128,132,142,0.15)", color: "rgba(160,164,172,0.9)" },
 };
 
 type TableFilter = "all" | "pre_trip" | "trip" | string; // string = day/city key
