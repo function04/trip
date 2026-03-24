@@ -182,7 +182,6 @@ export default function SummaryPage() {
               />
             ) : view === "city" ? (
               <MobileCityView
-                grandTotal={grandTotal}
                 cityData={cityData}
                 cityTotal={cityTotal}
               />
@@ -267,24 +266,13 @@ function MobileChartView({
 }
 
 function MobileCityView({
-  grandTotal, cityData, cityTotal,
+  cityData, cityTotal,
 }: {
-  grandTotal: number;
   cityData: { name: string; value: number; color: string }[];
   cityTotal: number;
 }) {
   return (
     <div style={{ padding: "14px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
-      {/* 총 지출 배너 */}
-      <div style={{
-        borderRadius: 18, padding: "16px 18px",
-        background: "var(--card-bg)",
-        border: "1px solid var(--border-default)",
-      }}>
-        <div style={{ fontSize: 11, color: "var(--text-secondary)", marginBottom: 4 }}>총 여행 경비</div>
-        <div style={{ fontSize: 26, fontWeight: 700, color: "var(--text-primary)" }}>{formatKRW(grandTotal)}</div>
-      </div>
-
       {/* 도시별 도넛 차트 */}
       <div style={{
         borderRadius: 20, padding: "20px 16px",
