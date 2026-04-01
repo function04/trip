@@ -12,13 +12,10 @@ jobs:
       - name: Ping Supabase
         run: |
           RESPONSE=$(curl -s -w "\nHTTP_STATUS:%{http_code}" \
-            -X POST \
-            "${{ secrets.SUPABASE_URL }}/rest/v1/heartbeat_log" \
+            -X GET \
+            "${{ secrets.SUPABASE_URL }}/rest/v1/heartbeat_log?limit=1" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
-            -H "Content-Type: application/json" \
-            -H "Prefer: return=minimal" \
-            -d '[{}]')
+            -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}")
           HTTP_STATUS=$(echo "$RESPONSE" | grep "HTTP_STATUS:" | cut -d: -f2)
           BODY=$(echo "$RESPONSE" | grep -v "HTTP_STATUS:")
           echo "HTTP Status: $HTTP_STATUS"
