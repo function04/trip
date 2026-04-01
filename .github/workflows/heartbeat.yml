@@ -18,7 +18,7 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
             -H "Content-Type: application/json" \
             -H "Prefer: return=minimal" \
-            -d '{"pinged_at": "'"$(date -u +%Y-%m-%dT%H:%M:%SZ)"'"}')
+            -d '{}')
           echo "HTTP Status: $HTTP_STATUS"
           echo "Heartbeat sent at $(date -u)"
           if [ "$HTTP_STATUS" -lt 200 ] || [ "$HTTP_STATUS" -ge 300 ]; then
